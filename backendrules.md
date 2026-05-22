@@ -171,3 +171,185 @@ NEVER expose sensitive or internal details.
 ALWAYS validate input and handle errors properly.
 PREFER abstraction and loose coupling.
 OPTIMIZE only when necessary, not prematurely.
+
+
+🔄 CI/CD & PIPELINE RULES 
+🚀 Build & Pipeline
+
+Every project MUST have a CI/CD pipeline.
+Code MUST be built automatically on every commit.
+Pipeline MUST fail if:
+
+Build fails
+Tests fail
+
+
+NEVER allow broken code to be merged.
+
+
+🔁 Continuous Integration (CI)
+
+Run on every:
+
+Pull Request (PR)
+Merge to main branch
+
+
+MUST include:
+
+Build step
+Unit tests
+Static code analysis (optional but recommended)
+
+
+
+
+🚀 Continuous Deployment (CD)
+
+
+Deployment MUST be automated.
+
+
+Use separate pipelines for:
+
+Development
+Staging
+Production
+
+
+
+Production deployments MUST require:
+
+Approval step OR strict validation
+
+
+
+
+🌍 Environment Rules
+
+
+Maintain separate environments:
+
+Dev → Testing → Staging → Production
+
+
+
+NEVER:
+
+Use production DB in dev/test
+Hardcode environment configs
+
+
+
+ALWAYS:
+
+Use environment-specific configuration files
+Use environment variables
+
+
+
+
+🔑 Secrets Management
+
+NEVER store secrets in code.
+Store in:
+
+Environment variables
+Azure Key Vault (or similar)
+
+
+
+
+✅ Code Merge Rules (VERY IMPORTANT)
+
+
+Every change MUST go through Pull Request (PR).
+
+
+PR MUST include:
+
+Code review
+Successful pipeline run
+
+
+
+NEVER:
+
+Push directly to main branch
+Merge without review
+
+
+
+
+🧪 Testing in Pipeline
+
+Run:
+
+Unit Tests (mandatory)
+Integration Tests (recommended)
+
+
+Code coverage SHOULD be tracked.
+
+
+📦 Versioning & Releases
+
+
+Use versioning:
+
+Semantic Versioning (v1.0.0)
+
+
+
+Each release MUST:
+
+Be tagged
+Have release notes
+
+
+
+
+🐳 Containerization (Recommended)
+
+Use Docker for deployments.
+Ensure:
+
+Same environment across dev and production
+
+
+
+
+📊 Monitoring After Deployment
+
+
+MUST monitor:
+
+Logs
+Errors
+Performance
+
+
+
+Rollback MUST be possible if failure occurs.
+
+
+
+🔄 Rollback Strategy
+
+Every deployment MUST support rollback.
+NEVER deploy without a recovery plan.
+
+
+✅ AI Behavior (Extended for Pipelines)
+Add these lines under your AI rules:
+
+ALWAYS ensure code is pipeline-safe.
+NEVER generate code that breaks CI/CD workflows.
+ALWAYS include test-friendly, buildable code.
+FOLLOW environment separation strictly.
+NEVER expose secrets in pipeline configs.
+
+
+
+
+
